@@ -125,7 +125,7 @@ In this case, after editing all texts, the exported result json file will be:
 
 You can also define context, with this higher-order component: __withSubCMSContext__
 
-
+```
 function ExampleComponent({code}){
   return (
     <SubCMSContext code={code}>
