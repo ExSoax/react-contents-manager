@@ -6,7 +6,7 @@ Have you ever created a webapp with react and then you needed to customize the t
 
 This package is the right answer: your teammates can edit contents following the user experience flow of your webapp.
 
-![demo](https://media.giphy.com/media/tsTJAClmhO2G0sV5lg/giphy.gif "Demo")
+![demo](https://s2.gifyu.com/images/Video.gif "Demo")
 
 ## How it works
 
