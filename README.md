@@ -45,6 +45,120 @@ npm install react-contents-manager
 
 Working on it 💪
 
+## Usage
+
+### First of all
+
+In the entry point of your webapp, import your contents as you prefer (.json file will be the best) and initialize the CMS with these contents:
+
+```
+import { CMS } from 'react-contents-manager';
+import contents from 'contents.json';
+
+CMS.init(contents);
+
+```
+
+## Make editable your components' texts
+
+In your react web-app you just need to surround editable texts with the __Inline__ component: 
+
+```
+import { Inline } from 'react-contents-manager';
+
+export default function ExampleComponent(){
+  return (
+    <p>
+      <Inline code="Example">
+        This is the default text associated with this editale content
+      </Inline>
+    </p>
+  );
+}
+```
+
+When you export contents with __CMS.export__ function, you will gain a json file with the following:
+
+```
+{
+  "Example": "Any text you want"
+}
+```
+
+To identify contents in the right way (and avoid collision between codes), it is possible to group same 'kind' of contents with a __SubCMSContext__   
+
+```
+import { Inline } from 'react-contents-manager';
+
+function ExampleComponent({code}){
+  return (
+    <SubCMSContext code={code}>
+      <p>
+        {/* Only string can be wrapped with <Inline> component */}
+        <Inline code="Example">
+          {/* The following will be the default text for this content: */}
+          This is the default text associated with this editale content
+        </Inline>
+      </p>
+    </SubCMSContext>
+  );
+}
+
+export default function App(){
+  return (
+    <>
+      <ExampleComponent code={"First"} />
+      <ExampleComponent code={"Second"} />
+    </>
+  );
+}
+```
+
+In this case, after editing all texts, the exported result json file will be:
+
+```
+{
+  "First.Example": "Any text you want",
+  "Second.Example": "Any text you want"
+}
+```
+
+You can also define context, with this higher-order component: __withSubCMSContext__
+
+
+function ExampleComponent({code}){
+  return (
+    <SubCMSContext code={code}>
+      <p>
+        <Inline code="Example">
+          This is the default text associated with this editale content
+        </Inline>
+      </p>
+    </SubCMSContext>
+  );
+}
+
+export default withSubCMSContext(function App(){
+  return (
+    <>
+      <ExampleComponent code={"First"} />
+      <ExampleComponent code={"Second"} />
+    </>
+  );
+}, 
+// if you doesn't specify this parameter, the name of component's class or function will be taken as code
+'App')
+```
+
+After the export the result json file will be:
+
+```
+{
+  "App.First.Example": "Any text you want",
+  "App.Second.Example": "Any text you want"
+}
+```
+
 ## License
 
 This project is licensed under the MIT License
