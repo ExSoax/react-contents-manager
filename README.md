@@ -23,6 +23,8 @@ CMS.isEnabled = true
 ```
 
 Use your app as you want, and edit all your texts.
+Holding __CTRL__ on your keyboard will put in evidence every editable content visible in the page.
+Holding __CTRL__ and the pressing __SHIFT__ will focus on the next available editable content.
 When you have finished just launch from console:
 
 ```
