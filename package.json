@@ -1,6 +1,6 @@
 {
   "name": "react-contents-manager",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "This package allows you to visually manage the static text content of a webapp. It can be particularly useful for copywriters, ux-writers, or non-expert programming figures, who do not know where to put their hands in the code.",
   "main": "build/index.js",
   "scripts": {

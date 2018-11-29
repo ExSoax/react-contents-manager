@@ -18,7 +18,7 @@ This CMS system is initialized with these values and will assign right contents 
 
 Just open the console of your browser and digit:
 
-```
+```javascript
 CMS.isEnabled = true
 ```
 
@@ -27,7 +27,7 @@ Holding __CTRL__ on your keyboard will put in evidence every editable content vi
 Holding __CTRL__ and the pressing __SHIFT__ will focus on the next available editable content.
 When you have finished just launch from console:
 
-```
+```javascript
 CMS.export()
 ```
 
@@ -51,7 +51,7 @@ Working on it 💪
 
 In the entry point of your webapp, import your contents as you prefer (.json file will be the best) and initialize the CMS with these contents:
 
-```
+```javascript
 import { CMS } from 'react-contents-manager';
 import contents from 'contents.json';
 
@@ -63,7 +63,7 @@ CMS.init(contents);
 
 In your react web-app you just need to surround editable texts with the __Inline__ component: 
 
-```
+```javascript
 import { Inline } from 'react-contents-manager';
 
 export default function ExampleComponent(){
@@ -79,7 +79,7 @@ export default function ExampleComponent(){
 
 When you export contents with __CMS.export__ function, you will gain a json file with the following:
 
-```
+```json
 {
   "Example": "Any text you want"
 }
@@ -87,7 +87,7 @@ When you export contents with __CMS.export__ function, you will gain a json file
 
 To identify contents in the right way (and avoid collision between codes), it is possible to group same 'kind' of contents with a __SubCMSContext__   
 
-```
+```javascript
 import { Inline } from 'react-contents-manager';
 
 function ExampleComponent({code}){
@@ -116,7 +116,7 @@ export default function App(){
 
 In this case, after editing all texts, the exported result json file will be:
 
-```
+```json
 {
   "First.Example": "Any text you want",
   "Second.Example": "Any text you want"
@@ -125,7 +125,7 @@ In this case, after editing all texts, the exported result json file will be:
 
 You can also define context, with this higher-order component: __withSubCMSContext__
 
-```
+```javascript
 function ExampleComponent({code}){
   return (
     <SubCMSContext code={code}>
@@ -152,7 +152,7 @@ export default withSubCMSContext(function App(){
 
 After the export the result json file will be:
 
-```
+```json
 {
   "App.First.Example": "Any text you want",
   "App.Second.Example": "Any text you want"

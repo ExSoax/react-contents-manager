@@ -169,7 +169,7 @@ export default class CMS {
   static setup() {
     CMS.Selection.setup();
 
-    //confirm exiting from website
+    // confirm exiting from website
     if (typeof window !== "undefined")
       window.onbeforeunload = function() {
         return "Are you sure to leave?";
@@ -337,12 +337,22 @@ export function useIsSelected(isEnabled) {
   @return {content: String, setContent: Function} 
 */
 function useContent(code, defaultContent, isEnabled) {
+  const [prevCode, setPrevCode] = useState(code);
   const [content, setContent] = useState(null);
 
-  if (content === null) {
+  function loadContent(){
     const cmsContent = CMS.Contents.get(code);
     setContent(cmsContent !== null ? cmsContent : defaultContent);
   }
+
+  // on code change, we need to update the content 
+  if(code != prevCode)
+  {
+    setPrevCode(code);
+    loadContent();
+  }
+  else if (content === null)
+    loadContent();
 
   // ⬜ this emojii shows an empty cms content (and it is visible only when CMS is enabled)
   if (content === "" && isEnabled) setContent("⬜");
