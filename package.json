@@ -28,8 +28,8 @@
   "author": "ExSoax",
   "dependencies": {
     "prop-types": "^15.6.0",
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.0",
+    "react": "next",
+    "react-dom": "next",
     "rxjs": "^6.3.3",
     "webpack": "^4.5.0"
   },
